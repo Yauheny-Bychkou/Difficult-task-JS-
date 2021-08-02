@@ -1,5 +1,6 @@
 let lang = "en";
 let namePerson = "Валентин";
+
 if (lang === "ru") {
   console.log(`  Понедельник
   Вторник
@@ -17,6 +18,7 @@ if (lang === "ru") {
   Saturday
   Sunday`);
 }
+
 switch (lang) {
   case "en":
     console.log(`  Monday
@@ -38,16 +40,17 @@ switch (lang) {
     break;
 }
 
-let obj = {
-  ru: ["понедельник", "вторник", "среда", "четверг", "пятница", "суббота", "воскресенье"],
-  en: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-};
-let arr = obj[lang];
-console.log(arr);
-
 let result =
   namePerson === "Артем"
     ? console.log("Директор")
     : namePerson === "Максим"
     ? console.log("Преподаватель")
     : console.log("Студент");
+
+let obj = {
+  ru: ["понедельник", "вторник", "среда", "четверг", "пятница", "суббота", "воскресенье"],
+  en: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+};
+let arr = obj[lang];
+
+console.log(arr);
