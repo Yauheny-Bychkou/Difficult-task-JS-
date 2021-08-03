@@ -1,16 +1,18 @@
 "use strict";
-let str;
+let str = "строка";
+let num = 123;
 
-str = "строка";
 const doString = function (a) {
-  if (typeof a === "string") {
-    console.log("Это строка");
-  } else {
+  if (typeof a !== "string") {
     console.log("Это не строка");
+  } else {
+    a = a.trim();
+    if (str.length > 30) {
+      console.log((str = str.substr(0, 30) + "..."));
+    } else {
+      console.log(a);
+    }
   }
-  if (str.length > 30) {
-    str = str.substr(0, 30) + "...";
-  }
-  console.log(str.trim());
 };
-doString("word");
+doString(str);
+doString(num);
