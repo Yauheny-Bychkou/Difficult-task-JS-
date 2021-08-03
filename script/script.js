@@ -1,59 +1,16 @@
-let lang = "en";
-let namePerson = "Валентин";
-let result;
-let obj;
-let arr;
+"use strict";
+let str;
 
-if (lang === "ru") {
-  console.log(`  Понедельник
-  Вторник
-  Среда
-  Четверг
-  Пятница
-  Суббота
-  Воскресенье`);
-} else if (lang === "en") {
-  console.log(`  Monday
-  Tuesday
-  Wednesday
-  Thursday
-  Friday
-  Saturday
-  Sunday`);
-}
-
-switch (lang) {
-  case "en":
-    console.log(`  Monday
-    Tuesday
-    Wednesday
-    Thursday
-    Friday
-    Saturday
-    Sunday`);
-    break;
-  case "ru":
-    console.log(`  Понедельник
-    Вторник
-    Среда
-    Четверг
-    Пятница
-    Суббота
-    Воскресенье`);
-    break;
-}
-
-result =
-  namePerson === "Артем"
-    ? console.log("Директор")
-    : namePerson === "Максим"
-    ? console.log("Преподаватель")
-    : console.log("Студент");
-
-obj = {
-  ru: ["понедельник", "вторник", "среда", "четверг", "пятница", "суббота", "воскресенье"],
-  en: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+str = "строка";
+const doString = function (a) {
+  if (typeof a === "string") {
+    console.log("Это строка");
+  } else {
+    console.log("Это не строка");
+  }
+  if (str.length > 30) {
+    str = str.substr(0, 30) + "...";
+  }
+  console.log(str.trim());
 };
-arr = obj[lang];
-
-console.log(arr);
+doString("word");
