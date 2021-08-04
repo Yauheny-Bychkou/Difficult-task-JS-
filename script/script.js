@@ -1,17 +1,15 @@
 "use strict";
-let str = "строка";
-let num = 123;
+let str = "33333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333";
 
 const doString = function (a) {
-  if (typeof a !== "string") {
-    console.log("Это не строка");
-  } else {
+  if (typeof a === "string") {
     a = a.trim();
-    if (str.length > 30) {
-      console.log((a = a.substr(0, 30) + "..."));
-    } else {
-      console.log(a);
+    if (a.length > 30) {
+      a = a.substr(0, 30) + "...";
     }
+    return "Это строка:" + a;
+  } else {
+    return "Это не строка";
   }
 };
-doString(str);
+console.log(doString(str));
