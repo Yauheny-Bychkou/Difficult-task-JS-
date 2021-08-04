@@ -8,11 +8,10 @@ const doString = function (a) {
   } else {
     a = a.trim();
     if (str.length > 30) {
-      console.log((str = str.substr(0, 30) + "..."));
+      console.log((a = a.substr(0, 30) + "..."));
     } else {
       console.log(a);
     }
   }
 };
 doString(str);
-doString(num);
