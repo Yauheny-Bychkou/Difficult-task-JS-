@@ -1,16 +1,23 @@
 "use strict";
-const chrs = ["2", "4"],
-  result = [10, 20, 30, 40, 50].filter((e) => chrs.includes(e.toString()[0]));
-console.log(result);
+const week = ["Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота", "Воскресенье"];
+const day = document.getElementById("fordays");
+const todayDay = new Date();
 
-let n = 100;
-for (let i = 2; i <= n; i++) {
-  for (let j = 2; j <= i; j++) {
-    if (i % j === 0 && j !== i) {
-      break;
-    } else {
-      console.log(i);
-      break;
+const days = () => {
+  week.forEach((item, i) => {
+    let newdiv = document.createElement("div");
+    if (i === +todayDay.getDay() - 1) {
+      console.log(todayDay.getDay());
+      newdiv.classList.add("today");
+      newdiv.textContent = week[i];
     }
-  }
-}
+    if (item === "Суббота" || item === "Воскресенье") {
+      newdiv.classList.add("italic");
+      newdiv.textContent = week[i];
+    } else {
+      newdiv.textContent = week[i];
+    }
+    day.appendChild(newdiv);
+  });
+};
+days();
