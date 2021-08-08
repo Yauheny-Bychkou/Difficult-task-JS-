@@ -3,21 +3,17 @@ const week = ["Понедельник", "Вторник", "Среда", "Чет�
 const day = document.getElementById("fordays");
 const todayDay = new Date();
 
-const days = () => {
-  week.forEach((item, i) => {
-    let newdiv = document.createElement("div");
-    if (i === +todayDay.getDay() - 1) {
-      console.log(todayDay.getDay());
-      newdiv.classList.add("today");
-      newdiv.textContent = week[i];
-    }
-    if (item === "Суббота" || item === "Воскресенье") {
-      newdiv.classList.add("italic");
-      newdiv.textContent = week[i];
-    } else {
-      newdiv.textContent = week[i];
-    }
-    day.appendChild(newdiv);
-  });
-};
-days();
+for (let i = 0; i < week.length; i++) {
+  const dayOff = document.createElement("div");
+  if (week[i] === "Суббота" || week[i] === "Воскресенье") {
+    dayOff.classList.add("italic");
+  }
+  if ((i + 1) % 7 === new Date().getDay()) {
+    dayOff.innerHTML = week[i].bold();
+    dayOff.classList.add("today");
+  } else {
+    dayOff.innerHTML = week[i];
+  }
+
+  document.body.appendChild(dayOff);
+}
