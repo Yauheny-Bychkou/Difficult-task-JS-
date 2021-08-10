@@ -39,30 +39,6 @@ setInterval(function () {
     x = "cов";
   }
   if (
-    date.getSeconds() === 1 &&
-    date.getSeconds() === 21 &&
-    date.getSeconds() === 31 &&
-    date.getSeconds() === 41 &&
-    date.getSeconds() === 51
-  ) {
-    y = "да";
-  } else if (
-    date.getSeconds() === 2 &&
-    date.getSeconds() <= 4 &&
-    date.getSeconds() === 22 &&
-    date.getSeconds() <= 24 &&
-    date.getSeconds() === 32 &&
-    date.getSeconds() <= 34 &&
-    date.getSeconds() === 42 &&
-    date.getSeconds() <= 44 &&
-    date.getSeconds() === 52 &&
-    date.getSeconds() <= 54
-  ) {
-    y = "ды";
-  } else {
-    y = "д";
-  }
-  if (
     date.getMinutes() === 1 &&
     date.getMinutes() === 21 &&
     date.getMinutes() === 31 &&
@@ -85,6 +61,30 @@ setInterval(function () {
     z = "ты";
   } else {
     z = "т";
+  }
+  if (
+    date.getSeconds() === 1 &&
+    date.getSeconds() === 21 &&
+    date.getSeconds() === 31 &&
+    date.getSeconds() === 41 &&
+    date.getSeconds() === 51
+  ) {
+    y = "да";
+  } else if (
+    date.getSeconds() === 2 &&
+    date.getSeconds() <= 4 &&
+    date.getSeconds() === 22 &&
+    date.getSeconds() <= 24 &&
+    date.getSeconds() === 32 &&
+    date.getSeconds() <= 34 &&
+    date.getSeconds() === 42 &&
+    date.getSeconds() <= 44 &&
+    date.getSeconds() === 52 &&
+    date.getSeconds() <= 54
+  ) {
+    y = "ды";
+  } else {
+    y = "д";
   }
   document.getElementById("date-1").innerHTML =
     days[n] +
