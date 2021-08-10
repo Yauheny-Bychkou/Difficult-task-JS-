@@ -31,56 +31,66 @@ setInterval(function () {
       return num;
     }
   }
-  if (date.getHours() === 1 && date.getHours() === 21) {
+  if (date.getHours() === 21 || date.getHours() === 1) {
     x = "c";
-  } else if (date.getHours() === 2 && date.getHours() <= 4 && date.getHours() === 23) {
+  } else if (date.getHours() === 2 || date.getHours() <= 4 || date.getHours() === 22 || date.getHours() === 23) {
     x = "cа";
   } else {
     x = "cов";
   }
   if (
-    date.getMinutes() === 1 &&
-    date.getMinutes() === 21 &&
-    date.getMinutes() === 31 &&
-    date.getMinutes() === 41 &&
+    date.getMinutes() === 1 ||
+    date.getMinutes() === 21 ||
+    date.getMinutes() === 31 ||
+    date.getMinutes() === 41 ||
     date.getMinutes() === 51
   ) {
     z = "та";
   } else if (
-    date.getMinutes() === 2 &&
-    date.getMinutes() <= 4 &&
-    date.getMinutes() === 22 &&
-    date.getMinutes() <= 24 &&
-    date.getMinutes() === 32 &&
-    date.getMinutes() <= 34 &&
-    date.getMinutes() === 42 &&
-    date.getMinutes() <= 44 &&
-    date.getMinutes() === 52 &&
-    date.getMinutes() <= 54
+    date.getMinutes() === 2 ||
+    date.getMinutes() === 3 ||
+    date.getMinutes() === 4 ||
+    date.getMinutes() === 22 ||
+    date.getMinutes() === 23 ||
+    date.getMinutes() === 24 ||
+    date.getMinutes() === 32 ||
+    date.getMinutes() === 33 ||
+    date.getMinutes() === 34 ||
+    date.getMinutes() === 42 ||
+    date.getMinutes() === 43 ||
+    date.getMinutes() === 44 ||
+    date.getMinutes() === 52 ||
+    date.getMinutes() === 53 ||
+    date.getMinutes() === 54
   ) {
     z = "ты";
   } else {
     z = "т";
   }
   if (
-    date.getSeconds() === 1 &&
-    date.getSeconds() === 21 &&
-    date.getSeconds() === 31 &&
-    date.getSeconds() === 41 &&
+    date.getSeconds() === 1 ||
+    date.getSeconds() === 21 ||
+    date.getSeconds() === 31 ||
+    date.getSeconds() === 41 ||
     date.getSeconds() === 51
   ) {
     y = "да";
   } else if (
-    date.getSeconds() === 2 &&
-    date.getSeconds() <= 4 &&
-    date.getSeconds() === 22 &&
-    date.getSeconds() <= 24 &&
-    date.getSeconds() === 32 &&
-    date.getSeconds() <= 34 &&
-    date.getSeconds() === 42 &&
-    date.getSeconds() <= 44 &&
-    date.getSeconds() === 52 &&
-    date.getSeconds() <= 54
+    date.getSeconds() === 2 ||
+    date.getSeconds() === 3 ||
+    date.getSeconds() === 4 ||
+    date.getSeconds() === 22 ||
+    date.getSeconds() === 23 ||
+    date.getSeconds() === 24 ||
+    date.getSeconds() === 32 ||
+    date.getSeconds() === 33 ||
+    date.getSeconds() === 34 ||
+    date.getSeconds() === 42 ||
+    date.getSeconds() === 43 ||
+    date.getSeconds() === 44 ||
+    date.getSeconds() === 52 ||
+    date.getSeconds() === 53 ||
+    date.getSeconds() === 54
   ) {
     y = "ды";
   } else {
