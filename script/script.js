@@ -104,7 +104,7 @@ setInterval(function () {
     z +
     " " +
     date.getSeconds() +
-    " секун" +
+    "  секун" +
     y;
 
   document.getElementById("date").innerHTML =
