@@ -2,6 +2,8 @@
 let task1 = document.querySelector("#task1");
 let task2 = document.querySelector("#task2");
 
+const body = document.body;
+
 // №1
 task1.innerHTML = task1.innerHTML.replace(/функ[а-яё]+/gi, `<strong>функция</strong>`);
 
@@ -14,13 +16,8 @@ arrayContent.forEach((item) => {
 });
 
 // №3
-const regExp2 = /"\W+"/gi;
-const arrayBodyContent = document.body.innerHTML.match(regExp2);
-
-arrayBodyContent.forEach((item) => {
-  const string = item.toString();
-  document.body.innerHTML = document.body.innerHTML.replace(string, `<mark>${string}</mark>`);
-});
+body.innerHTML = body.innerHTML.replace(/«/g, () => "<mark>«").replace(/»/g, () => "»</mark>");
+body.innerHTML = body.innerHTML.replace(/ "[^"\\]+(?:\\.[^"\\]*)*"/g, (math) => `<mark>${math}</mark>`);
 
 // №4 и №6
 const RegExpLink = /\w+\:\/\/\w+(\.\w+)+((\/[\w-]+)+\/)*/g;
