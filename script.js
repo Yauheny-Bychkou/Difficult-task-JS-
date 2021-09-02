@@ -64,23 +64,27 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     const card = document.querySelectorAll(".card");
 
-    card.forEach((e) => {
-      let name = e.querySelectorAll("h2");
-      data.forEach((item) => {
-        if (item.movies !== undefined) {
-          item.movies.forEach((a) => {
-            select.addEventListener("change", () => {
-              e.classList.add("none");
-              if (select.value === a) {
-                if (item.name === name[0].textContent) {
-                  e.style.display = "initial";
-                  console.log(e);
-                }
-              }
-            });
+    data.forEach((item) => {
+      if (item.movies !== undefined) {
+        item.movies.forEach((a) => {
+          select.addEventListener("change", () => {
+            if (select.value === a) {
+              let arr = item.movies.join(", ");
+              cards.innerHTML = "";
+              cards.insertAdjacentHTML(
+                "beforeend",
+                `<div class="card">
+                  <img src="${item.photo}" alt="" class="photo" />
+                  <h2><span>${item.name}</span></h2>
+                  <h3 class="real-name">Real name: <span>${item.realName}</span></h3>
+                  <h3 class="status">Status: <span>${item.status}</span></h3>
+                  <h3>Movies: <span class="movies">${arr}</span></h3>
+                </div>`
+              );
+            }
           });
-        }
-      });
+        });
+      }
     });
   };
   const urlPhotos = "./dbHeroes.json";
