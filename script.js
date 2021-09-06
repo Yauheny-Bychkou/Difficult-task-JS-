@@ -4,8 +4,8 @@ document.addEventListener("DOMContentLoaded", () => {
     cards = document.querySelector(".cards");
 
   const films = new Set();
-  const arr = [];
-  const newArr = [];
+  let arr = [];
+  let newArr = [];
 
   const getData = (url) => {
     return new Promise((resolve, reject) => {
@@ -52,22 +52,49 @@ document.addEventListener("DOMContentLoaded", () => {
         );
       });
     };
-
     renderFunc(arr);
-    renderFunc(
-      arr.filter((item) => {
-        if (item.movies !== undefined) {
-          item.movies.forEach((film) => {
-            select.addEventListener("change", () => {
-              if (select.value === film) {
-                newArr.push(item);
-                console.log(item);
+    const removeCards = () => {
+      const card = document.querySelectorAll(".card");
+      card.forEach((elem) => {
+        elem.remove();
+      });
+    };
+
+    select.addEventListener("change", () => {
+      removeCards();
+      renderFunc(
+        arr.filter((elem) => {
+          if (elem.movies !== undefined) {
+            elem.movies.forEach((item) => {
+              if (select.value === item) {
+                console.log(elem);
+                return true;
+              } else {
+                return false;
               }
             });
-          });
-        }
-      })
-    );
+          }
+        })
+      );
+    });
+
+    select.addEventListener("change", () => {
+      if (select.value === "no films") {
+        removeCards();
+        renderFunc(
+          arr.filter((item) => {
+            if (item.movies !== undefined) {
+              return true;
+            } else {
+              return false;
+            }
+          })
+        );
+      } else if (select.value === "all films") {
+        removeCards();
+        renderFunc(arr);
+      }
+    });
   };
   const urlPhotos = "./dbHeroes.json";
   getData(urlPhotos)
