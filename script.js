@@ -5,7 +5,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const films = new Set();
   let arr = [];
-  let newArr = [];
 
   const getData = (url) => {
     return new Promise((resolve, reject) => {
@@ -39,6 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
       select.insertAdjacentHTML("beforeend", `<option value="${film}">${film}</option>`);
     });
     const renderFunc = (data) => {
+      console.log(data);
       data.forEach((item) => {
         cards.insertAdjacentHTML(
           "beforeend",
@@ -62,20 +62,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
     select.addEventListener("change", () => {
       removeCards();
-      renderFunc(
-        arr.filter((elem) => {
-          if (elem.movies !== undefined) {
-            elem.movies.forEach((item) => {
-              if (select.value === item) {
-                console.log(elem);
-                return true;
-              } else {
-                return false;
-              }
-            });
-          }
-        })
-      );
+      arr.forEach((elem) => {
+        if (elem.movies !== undefined) {
+          elem.movies.forEach((item) => {
+            if (select.value === item) {
+              renderFunc(
+                arr.filter((i) => {
+                  if (elem === i) {
+                    return true;
+                  } else {
+                    return false;
+                  }
+                })
+              );
+            }
+          });
+        }
+      });
     });
 
     select.addEventListener("change", () => {
